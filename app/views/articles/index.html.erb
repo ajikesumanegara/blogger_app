@@ -1,5 +1,9 @@
 <h1>Articles listing page</h1>
 
+<%= link_to 'Create New Article', new_article_path %>
+
 <%= render 'article' %>
 
-<%= link_to 'Create New Article', new_article_path %>
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>

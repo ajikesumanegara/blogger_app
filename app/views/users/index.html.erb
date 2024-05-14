@@ -1,5 +1,7 @@
 <h1>Users listing page</h1>
 
+<%= link_to 'Create New User', signup_path %>
+
 <table>
   <thead>
     <tr>
@@ -25,4 +27,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Create New User', signup_path %>
+<div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
