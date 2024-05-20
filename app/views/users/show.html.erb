@@ -3,12 +3,14 @@
 <p><strong>Email: </strong><%= @user.email %></p>
 <p><strong>Total articles have been created: </strong><%= pluralize(@user.articles.count, "article") %></p>
 
-<%= link_to "Edit Profile", edit_user_path %>
+<% if logged_in? && @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_path %>
+<% end %>
 
 <h3>Articles:</h3>
 
 <%= render 'articles/article' %>
 
 <div class="flickr_pagination">
-    <%= will_paginate @articles, :container => false %>
+  <%= will_paginate @articles, :container => false %>
 </div>
