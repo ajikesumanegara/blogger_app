@@ -1,0 +1,13 @@
+<h1><%= @category.name %></h1>
+<%= link_to "Edit Category", edit_category_path %>
+
+<h4>Listing articles by this category:</h4>
+<% if @category.articles.any? %>
+  <%= render "articles/article" %>
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+<% else %>
+  <p>This category doesn't have any articles.</p>
+  <%= link_to "Create Article", new_article_path %>
+<% end %>
